@@ -236,6 +236,11 @@ class HtmlEditorState extends State<HtmlEditor> {
     _controller.evaluateJavascript(
         '\$("#summernote").summernote("fullscreen.toggle");');
   }
+  
+  setBottomMargin(double margin) {
+    _controller.evaluateJavascript(
+        "const e = document.getElementsByClassName('note-editable')[0]; e.style.boxSizing = 'border-box'; e.style.paddingBottom = '${margin}px'");
+  }
 
   setFocus() {
     _controller.evaluateJavascript("\$('#summernote').summernote('focus');");
